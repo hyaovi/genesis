@@ -1,0 +1,20 @@
+{
+  "name": "genesis",
+  "version": "1.0.0",
+  "description": "static website boilerplate",
+  "main": "index.js",
+  "author": "Houngue Yaovi",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-sass": "^4.0.0"
+  },
+  "scripts": {
+    "start":"gulp",
+    "build":"gulp build",
+    "serveBuild":"gulp serveBuild"
+  }
+}
+
