@@ -18,8 +18,8 @@ You will need gulp install `npm -g gulp` or `yarn add gulp`
 
 ### Dependencies
 Genesis depend on 
-[Browsersync](https://github.com/BrowserSync/browser-sync)
-[NodeJs](https://nodejs.org/en/download/)
-[Gulp](https://github.com/gulpjs/gulp)
-[Gulp-sass](https://github.com/dlmanning/gulp-sass)
-[Gulp-imagemin](https://github.com/sindresorhus/gulp-imagemin)
+[Browsersync](https://github.com/BrowserSync/browser-sync),
+[NodeJs](https://nodejs.org/en/download/),
+[Gulp](https://github.com/gulpjs/gulp),
+[Gulp-sass](https://github.com/dlmanning/gulp-sass),
+[Gulp-imagemin](https://github.com/sindresorhus/gulp-imagemin),
