@@ -7,11 +7,11 @@ A boiler plate for static website developpement
  Start the dev server by running `npm start` or `yarn start` 
  
 ### Developement
-    Start the developpement server by running `npm start` or `yarn start` 
+Start the developpement server by running `npm start` or `yarn start` 
 
 ### Production
-    Build a Production version of your website into 'prod' folder by running `npm build` or `yarn build` 
-    Start the production server by running `npm serveBuild` or `yarn serveBuild` 
+Build a Production version of your website into 'prod' folder by running `npm build` or `yarn build` 
+Start the production server by running `npm serveBuild` or `yarn serveBuild` 
 
 ### Prerequisites
 You will need gulp install `npm -g gulp` or `yarn add gulp`
