@@ -64,7 +64,7 @@ gulp.task('cssBuild', ()=>{
 gulp.task('imgBuild', ()=>{
     gulp.src(path.src.img)
     .pipe(imagemin())
-    .pipe(gulp.src(path.build.img))
+    .pipe(gulp.dest(path.build.img))
 })
 gulp.task('build', ['htmlBuild', 'jsBuild', 'cssBuild', 'imgBuild'])
 
