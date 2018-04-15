@@ -2,7 +2,8 @@ const
     browserSync = require('browser-sync').create(),
     gulp =  require('gulp'),
     sass = require('gulp-sass'),
-    imagemin = require('gulp-imagemin')
+    imagemin = require('gulp-imagemin'),
+    autoprefixer = require('gulp-autoprefixer')
 ;
 
 const path = {
@@ -25,6 +26,10 @@ const path = {
 gulp.task('sass', ()=>{
     gulp.src(path.src.scss)
     .pipe(sass())
+    .pipe(autoprefixer({
+        browsers:['since 2015'],
+        cascade: false,
+    }))
     .pipe(gulp.dest(path.src.css))
     .pipe(browserSync.stream());
 })
