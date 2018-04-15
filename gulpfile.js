@@ -21,8 +21,6 @@ const path = {
     }
 };
 
-gulp.task('test', ()=>{return console.log('gulp is running')})
-
 // *******************DEV**************//
 gulp.task('sass', ()=>{
     gulp.src(path.src.scss)
@@ -32,15 +30,14 @@ gulp.task('sass', ()=>{
 })
 
 
-gulp.task('serve', ['test', 'sass'], () =>{
+gulp.task('serve', [ 'sass'], function(){
     browserSync.init({
         server:'./src/'
     });
-    gulp.watch([path.src.scss], ['sass', browserSync.reload ]);
+    gulp.watch([path.src.scss], ['sass' ]);
     gulp.watch([path.src.html]).on('change', browserSync.reload);
     gulp.watch([path.src.js]).on('change', browserSync.reload);
     gulp.watch([path.src.img]).on('change', browserSync.reload);
-    gulp.watch(['./src/css/*.css'],[ browserSync.reload ]);
     
 })
 
