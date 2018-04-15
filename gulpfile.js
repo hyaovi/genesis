@@ -40,7 +40,7 @@ gulp.task('serve', ['test', 'sass'], () =>{
     gulp.watch([path.src.html]).on('change', browserSync.reload);
     gulp.watch([path.src.js]).on('change', browserSync.reload);
     gulp.watch([path.src.img]).on('change', browserSync.reload);
-    gulp.watch(['./src/css/*.css'],['dangercss', browserSync.reload ]);
+    gulp.watch(['./src/css/*.css'],[ browserSync.reload ]);
     
 })
 
