@@ -33,9 +33,12 @@ gulp.task('sass', ()=>{
     .pipe(gulp.dest(path.src.css))
     .pipe(browserSync.stream());
 })
-
-
-gulp.task('serve', [ 'sass'], function(){
+//import bootstrap js and dependencies
+gulp.task('bootstrap', () => {
+    gulp.src(['./node_modules/jquery/dist/jquery.js', './node_modules/popper.js/dist/popper.js','./node_modules/bootstrap/dist/js/bootstrap.js'])
+    .pipe(gulp.dest('./src/js'))
+})
+gulp.task('serve', [ 'sass','bootstrap'], function(){
     browserSync.init({
         server:'./src/'
     });
