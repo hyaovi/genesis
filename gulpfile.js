@@ -27,7 +27,7 @@ gulp.task('sass', ()=>{
     gulp.src(path.src.scss)
     .pipe(sass())
     .pipe(autoprefixer({
-        browsers:['since 2015'],
+        browsers:['last 20 versions'],
         cascade: false,
     }))
     .pipe(gulp.dest(path.src.css))
