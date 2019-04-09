@@ -5,6 +5,11 @@
 
 #package.lock
 /package-lock.json
+
+#dev JS and Css files
+/src/css
+/src/js
+
 # production
 /prod
 
