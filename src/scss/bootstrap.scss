@@ -1,0 +1,14 @@
+/*
+Check how to customize bootstrap at http://getbootstrap.com/docs/4.1/getting-started/theming/
+*/
+
+//Bootstrap theming goes here
+
+$theme-colors: (
+  // "primary": #1e90ff,
+    // "danger": #ff4136
+    // "custom-color": #900 //Creates a custom color
+);
+
+//Import bootstrap
+@import "../../node_modules/bootstrap/scss/bootstrap";

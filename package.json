@@ -1,9 +1,14 @@
 {
   "name": "genesis",
   "version": "1.0.0",
-  "description": "static website boilerplate",
+  "description": "website boilerplate",
   "main": "index.js",
   "author": "Houngue Yaovi",
+  "keywords": [
+    "bootstrap",
+    "Sass",
+    "Gulp"
+  ],
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.23.6",
@@ -18,7 +23,7 @@
     "serveBuild": "gulp serveBuild"
   },
   "dependencies": {
-    "bootstrap": "^4.1.0",
+    "bootstrap": "^4.3.1",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.3"
   }
