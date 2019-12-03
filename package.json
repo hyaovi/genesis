@@ -12,9 +12,9 @@
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.23.6",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^5.0.0",
-    "gulp-imagemin": "^4.1.0",
+    "gulp-imagemin": "^6.2.0",
     "gulp-sass": "^4.0.0"
   },
   "scripts": {
