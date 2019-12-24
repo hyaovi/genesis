@@ -55,7 +55,10 @@ const watchImg = watch([path.src.img]);
 
 const serve = series(parallel(sass, bootstrap), function watcher() {
   launchBrowser();
-  watchSass.on('change', browserSync.reload);
+  watchSass.on('change', function() {
+    browserSync.reload();
+    sass();
+  });
   watchHtml.on('change', browserSync.reload);
   watchJs.on('change', browserSync.reload);
   watchImg.on('change', browserSync.reload);
