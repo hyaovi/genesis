@@ -48,17 +48,17 @@ const launchBrowser = (path = './src/', port = 3000) => {
   });
 };
 
-const watchSass = () => watch([path.src.scss], sass);
-const watchHtml = () => watch([path.src.html], browserSync.reload);
-const watchJs = () => watch([path.src.js], browserSync.reload);
-const watchImg = () => watch([path.src.img], browserSync.reload);
+const watchSass = watch([path.src.scss]);
+const watchHtml = watch([path.src.html]);
+const watchJs = watch([path.src.js]);
+const watchImg = watch([path.src.img]);
 
-const serve = series(parallel(sass, bootstrap), function() {
+const serve = series(parallel(sass, bootstrap), function watcher() {
   launchBrowser();
-  watchSass();
-  watchHtml();
-  watchJs();
-  watchImg();
+  watchSass.on('change', browserSync.reload);
+  watchHtml.on('change', browserSync.reload);
+  watchJs.on('change', browserSync.reload);
+  watchImg.on('change', browserSync.reload);
 });
 
 exports.default = serve;
