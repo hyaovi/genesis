@@ -3,6 +3,7 @@ const browserSync = require('browser-sync').create();
 const gulpSass = require('gulp-sass');
 const imagemin = require('gulp-imagemin');
 const autoprefixer = require('gulp-autoprefixer');
+const cleanCss = require('gulp-clean-css');
 
 const cache = require('gulp-cache');
 const imageminPngquant = require('imagemin-pngquant');
@@ -80,7 +81,9 @@ const jsBuild = () => {
   return src([path.src.js]).pipe(dest(path.build.js));
 };
 const cssBuild = () => {
-  return src(path.src.css.concat('*.css')).pipe(dest(path.build.css));
+  return src(path.src.css.concat('*.css'))
+    .pipe(cleanCss())
+    .pipe(dest(path.build.css));
 };
 const imgBuild = () => {
   return (
@@ -136,3 +139,4 @@ const serveBuild = series(build, () => launchBrowser('./prod/', 8000));
 exports.build = build;
 exports.serveBuild = serveBuild;
 exports.imgBuild = imgBuild;
+exports.cssBuild = cssBuild;
