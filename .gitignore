@@ -8,7 +8,6 @@
 
 #dev JS and Css files
 /src/css
-/src/js
 
 # production
 /prod
