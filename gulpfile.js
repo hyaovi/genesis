@@ -4,6 +4,12 @@ const gulpSass = require('gulp-sass');
 const imagemin = require('gulp-imagemin');
 const autoprefixer = require('gulp-autoprefixer');
 
+const cache = require('gulp-cache');
+const imageminPngquant = require('imagemin-pngquant');
+const imageminZopfli = require('imagemin-zopfli');
+const imageminMozjpeg = require('imagemin-mozjpeg');
+const imageminGiflossy = require('imagemin-giflossy');
+
 const path = {
   src: {
     html: 'src/*.html',
@@ -77,11 +83,56 @@ const cssBuild = () => {
   return src(path.src.css.concat('*.css')).pipe(dest(path.build.css));
 };
 const imgBuild = () => {
-  return src(path.src.img)
-    .pipe(imagemin())
-    .pipe(dest(path.build.img));
+  return (
+    src(path.src.img)
+      // .pipe(imagemin())
+      .pipe(
+        cache(
+          imagemin([
+            //png
+            imageminPngquant({
+              speed: 1,
+              quality: [0.95, 1] //lossy settings
+            }),
+            imageminZopfli({
+              more: true
+              // iterations: 50 // very slow but more effective
+            }),
+            //gif
+            // imagemin.gifsicle({
+            //     interlaced: true,
+            //     optimizationLevel: 3
+            // }),
+            //gif very light lossy, use only one of gifsicle or Giflossy
+            imageminGiflossy({
+              optimizationLevel: 3,
+              optimize: 3, //keep-empty: Preserve empty transparent frames
+              lossy: 2
+            }),
+            //svg
+            imagemin.svgo({
+              plugins: [
+                {
+                  removeViewBox: false
+                }
+              ]
+            }),
+            //jpg lossless
+            imagemin.jpegtran({
+              progressive: true
+            }),
+            //jpg very light lossy, use vs jpegtran
+            imageminMozjpeg({
+              quality: 90
+            })
+          ])
+        )
+      )
+      .pipe(dest(path.build.img))
+  );
 };
 const build = parallel(htmlBuild, jsBuild, cssBuild, imgBuild);
 const serveBuild = series(build, () => launchBrowser('./prod/', 8000));
 exports.build = build;
 exports.serveBuild = serveBuild;
+exports.imgBuild = imgBuild;
